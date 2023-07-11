@@ -1,0 +1,42 @@
+1. Props
+    -> we can pass data form parent component to child component using props.
+    -> We can also pass data from parent to child using props and using callback function.
+    -> lifting state up
+        -> communication between  two sibling components.
+        -> first pass data first -> parent and other pass data parent -> second
+
+    
+2.  useState
+    use for state update or change.
+
+   -> How to use ?
+
+    const [enteredTitle,setEnteredTitle] = useState('Initial value');
+
+    // Initial value => Initial value of state.
+    // enteredTitle => variable that store value.
+    // setEnteredTitle => function that set state value.
+
+   -> Update single value in state
+
+    const [enteredTitle,setEnteredTitle] = useState('Initial value');
+    setEnteredTitle('updated value');
+
+   -> Update multiple value in state
+    
+      const [userInput, setUserInput] = useState({
+        enteredTitle: "",
+        enteredAmount: "",
+        enteredDate: "",
+     });
+
+    // somtimes give incorrect state approach
+     setUserInput({
+        ...userInput,
+        enteredTitle: event.target.value,
+    }); 
+
+    // id we status update depends on previous state, then use this approach
+    setUserInput((prevState)=>{
+        return {...prevState, enteredTitle: event.target.value}
+    });

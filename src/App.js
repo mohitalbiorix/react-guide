@@ -1,7 +1,7 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Expenses from "./components/Expenses/Expenses";
 import React from "react";
+import NewExpense from "./components/NewExpense/NewExpense";
 
 const expenses = [
   {
@@ -25,19 +25,16 @@ const expenses = [
   },
 ];
 
+const AddExpenseHandler = (expense) => {
+  console.log(expense, "expense");
+};
+
 const App = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React App
-        </a>
+        <h1>React App</h1>
+        <NewExpense onAddExpense={AddExpenseHandler}></NewExpense>
         {/* pass data using props to the components */}
         <Expenses expenses={expenses}></Expenses>
       </header>
