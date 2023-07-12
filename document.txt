@@ -40,3 +40,8 @@
     setUserInput((prevState)=>{
         return {...prevState, enteredTitle: event.target.value}
     });
+
+3. derived/computed state or value
+    => one state depends on another state or one value derived from another state that's called derived state or value.
+
+4. stateless and statefull component.

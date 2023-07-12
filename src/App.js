@@ -2,8 +2,9 @@ import "./App.css";
 import Expenses from "./components/Expenses/Expenses";
 import React from "react";
 import NewExpense from "./components/NewExpense/NewExpense";
+import { useState } from "react";
 
-const expenses = [
+const DUMMY_EXPENSES = [
   {
     id: "e1",
     title: "Mobile",
@@ -25,11 +26,14 @@ const expenses = [
   },
 ];
 
-const AddExpenseHandler = (expense) => {
-  console.log(expense, "expense");
-};
-
 const App = () => {
+  const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
+  const AddExpenseHandler = (expense) => {
+    setExpenses((prevExpenses) => {
+      return [expense, ...prevExpenses];
+    });
+  };
+
   return (
     <div className="App">
       <header className="App-header">
